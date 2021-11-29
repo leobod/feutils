@@ -1,7 +1,7 @@
 
 import Koa from 'koa'
 import Router from 'koa-router'
-import { setupPlugins } from './plugins'
+import { setupPlugins } from '@/plugins'
 
 const app = new Koa()
 
