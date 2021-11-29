@@ -1,9 +1,11 @@
 import Koa from 'koa'
 
-import { RequestTimeRecorder } from './Recorder/RequestTimeRecorder'
+import { setupLogger } from './Logger'
+import { setupParser } from './Parser'
 
 const setupPlugins = function(app: Koa) {
-  app.use(RequestTimeRecorder)
+  setupLogger(app)
+  setupParser(app)
 }
 
 export { setupPlugins }
