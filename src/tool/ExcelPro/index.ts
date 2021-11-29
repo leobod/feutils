@@ -1,2 +1,2 @@
 
-export { default as ExcelJsonTransformer } from './ExcelJsonTransformer'
+export { ExcelJsonTransformer } from './ExcelJsonTransformer'
