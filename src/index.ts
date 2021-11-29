@@ -1,23 +1,18 @@
 
-// import { IncomingMessage, OutgoingMessage } from 'http'
-// import http from 'http'
-//
-// import { printHello } from './demo/hello'
-//
-// const server = http.createServer((req: IncomingMessage, res: OutgoingMessage) => {
-//   printHello('Hello')
-//   res.write('hello world')
-//   res.end()
-// })
-//
-// const port = 8080
-// server.listen(port, () => {
-//   console.log('server is listening http:localhost:' + port)
-// })
+import Koa from 'koa'
+import Router from 'koa-router'
+import { RequestTimeRecorder } from './plugins'
 
-import { ExcelJsonTransformer } from './tool/ExcelPro'
+const app = new Koa()
+app.use(RequestTimeRecorder)
 
-console.log(process.cwd())
+const router = new Router()
 
-const transformer = new ExcelJsonTransformer(process.cwd() + '/assets/demo.xls')
-console.log(transformer.getSheetData(0))
+router.get(/\//, async(ctx, next) => {
+  ctx.body = 'Hellow World !'
+})
+app.use(router.routes())
+
+app.listen(3000)
+
+console.log('Server is runing !! http://localhost:3000')
