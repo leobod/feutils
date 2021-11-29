@@ -7,4 +7,6 @@ const RequestTimeRecorder = async function(ctx: Koa.BaseContext, next: () => Pro
   console.log(`${ctx.method} ${ctx.url}--${ms}ms`)
 }
 
-export default RequestTimeRecorder
+export {
+  RequestTimeRecorder
+}

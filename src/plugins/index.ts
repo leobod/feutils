@@ -1,2 +1,9 @@
+import Koa from 'koa'
 
-export { default as RequestTimeRecorder } from './Recorder/RequestTimeRecorder'
+import { RequestTimeRecorder } from './Recorder/RequestTimeRecorder'
+
+const setupPlugins = function(app: Koa) {
+  app.use(RequestTimeRecorder)
+}
+
+export { setupPlugins }

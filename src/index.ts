@@ -1,10 +1,11 @@
 
 import Koa from 'koa'
 import Router from 'koa-router'
-import { RequestTimeRecorder } from './plugins'
+import { setupPlugins } from './plugins'
 
 const app = new Koa()
-app.use(RequestTimeRecorder)
+
+setupPlugins(app)
 
 const router = new Router()
 
