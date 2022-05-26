@@ -1,16 +1,16 @@
 {
-    "name": "@leobod/utool",
-    "version": "0.0.2",
-    "description": "",
-    "main": "dist/index.js",
-    "files": [
-        "/dist"
-    ],
-    "scripts": {
-      "build": "tsc",
-      "test:dev": "ts-node test/test.ts",
-      "p1": "nodemon -e ts --exec ts-node src/index.ts",
-      "p2": "node dist/index.js"
+  "name": "@leobod/utool",
+  "version": "0.0.2",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test:dev": "ts-node test/test.ts",
+    "p1": "nodemon -e ts --exec ts-node src/index.ts",
+    "p2": "node dist/index.js"
   },
   "repository": {
     "type": "git",

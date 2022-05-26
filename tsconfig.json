@@ -3,7 +3,7 @@
     "target": "ESNext",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "lib": ["ESNext", "DOM"],                            /* Specify a set of bundled library declaration files that describe the target runtime environment. */
     "experimentalDecorators": true,                      /* Enable experimental support for TC39 stage 2 draft decorators. */
-    "emitDecoratorMetadata": true,                       /* Emit design-typings metadata for decorated declarations in source files. */
+    "emitDecoratorMetadata": true,                       /* Emit design-type metadata for decorated declarations in source files. */
 
     /* Modules */
     "module": "umd",                                /* Specify what modules code is generated. */
@@ -14,14 +14,14 @@
     },
     "sourceMap": true,                                   /* Create source map files for emitted JavaScript files. */
     "outDir": "./dist",                                    /* Specify an output folder for all emitted files. */
-    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for typings compatibility. */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "strict": true,                                      /* Enable all strict typings-checking options. */
+    "strict": true,                                      /* Enable all strict type-checking options. */
   },
     "include": [
         // "src/**/*",
         "src/**/*.ts",
-        "src/typings/*.d.ts"
+      "src/type/*.d.ts"
     ],
     "exclude": ["node_modules"]
 }

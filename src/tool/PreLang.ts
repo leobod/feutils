@@ -1,10 +1,10 @@
 import { JsonReader } from "../util";
 
-import LooseObject from "../typings/LooseObject";
+import LooseObject from "../type/LooseObject";
 
 
 /**
- *
+ * 语言预处理
  * @param p
  */
 
@@ -20,4 +20,24 @@ export class PreLang {
     }
     return outObj
   }
+
+  public static diffFiles = function (originP: string, completeP: string) {
+    const jsonReader = new JsonReader();
+    const originJson: LooseObject = jsonReader.toJson(originP) as LooseObject;
+    const completeJson: LooseObject = jsonReader.toJson(completeP) as LooseObject;
+    const originKeys = []
+    for (const key in originJson) {
+      originKeys.push(key)
+    }
+    const outObj: LooseObject = {};
+    for (const key of originKeys) {
+      if (completeJson[key] === undefined) {
+        outObj[key] = ''
+      } else {
+        outObj[key] = completeJson[key]
+      }
+    }
+    return outObj;
+  };
+
 }
