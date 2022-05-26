@@ -1,2 +1,0 @@
-
-export { ExcelJsonTransformer } from './ExcelJsonTransformer'

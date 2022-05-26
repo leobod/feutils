@@ -1,15 +1,13 @@
 {
-  "name": "small-tool",
+  "name": "u-tool",
   "version": "0.0.1",
   "description": "small-tool to make work automate",
-  "main": "main.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build-ts": "tsc",
-    "start": "ts-node src/index.ts",
-    "start:dev": "nodemon -e ts --exec ts-node src/index.ts",
-    "serve": "node dist/index.js",
-    "webpack": "webpack --config webpack.config.js --watch",
-    "test": "ts-node test/index.ts"
+      "build": "tsc",
+      "test:dev": "ts-node test/test.ts",
+      "p1": "nodemon -e ts --exec ts-node src/index.ts",
+      "p2": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -32,21 +30,10 @@
     "core-js": "^3.6.5",
     "crypto": "^1.0.1",
     "dayjs": "^1.10.7",
-    "koa": "^2.13.4",
-    "koa-bodyparser": "^4.3.0",
-    "koa-logger": "^3.2.1",
-    "koa-router": "^10.1.1",
-    "koa2-cors": "^2.0.6",
     "node-xlsx": "^0.17.2",
-    "nodemailer": "^6.7.2",
-    "typescript": "^4.5.2"
+    "nodemailer": "^6.7.2"
   },
   "devDependencies": {
-    "@types/koa": "^2.13.4",
-    "@types/koa-bodyparser": "^4.3.4",
-    "@types/koa-logger": "^3.1.2",
-    "@types/koa-router": "^7.4.4",
-    "@types/koa2-cors": "^2.0.2",
     "@types/node": "^16.11.10",
     "@types/nodemailer": "^6.4.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
@@ -54,8 +41,10 @@
     "babel-eslint": "~10.1.0",
     "babel-jest": "^26.6.3",
     "eslint": "^8.3.0",
+    "eslint-plugin-import": "^2.20.1",
     "nodemon": "^2.0.15",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
   },
   "eslintConfig": {
     "root": true,
