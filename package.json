@@ -1,9 +1,12 @@
 {
-  "name": "u-tool",
-  "version": "0.0.1",
-  "description": "small-tool to make work automate",
-  "main": "dist/index.js",
-  "scripts": {
+    "name": "@leobod/utool",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
       "build": "tsc",
       "test:dev": "ts-node test/test.ts",
       "p1": "nodemon -e ts --exec ts-node src/index.ts",

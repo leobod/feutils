@@ -1,4 +1,4 @@
-# small-tool
+# tool
 
 ## License
 
@@ -17,40 +17,8 @@
 -
 
 ## Prepare
-- `npm install typescript`
-- `npm install @types/node --save-dev`
-- `npm install ts-node --save-dev`
-- `npm install nodemon --save-dev`
-- 初始化typescript环境
-  - `.\node_modules\.bin\tsc --init`
-- lint
-  - `npm i eslint@latest --save-dev`
-  - `npm i @typescript-eslint/eslint-plugin --save-dev`
-  - `npm i @typescript-eslint/parser --save-dev`
-  -
-
-### .eslintrc.js
-```txt
-{
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended'
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    parser: 'babel-eslint',
-    sourceType: 'module'
-  },
-  plugins: [
-    '@typescript-eslint'
-  ]
-}
-```
 
 
 ## Reference
 
-1. `koa-router` : 路由功能
-2. `koa-bodyparser` : 解析请求体时需要加载额外的中间件
-3.
 
