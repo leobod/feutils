@@ -8,7 +8,7 @@ import LooseObject from "../typings/LooseObject";
  * @param p
  */
 
-class PreLang {
+export class PreLang {
   public static filterBlank = function(p: string): LooseObject {
     const jsonReader = new JsonReader();
     const origin: LooseObject = jsonReader.toJson(p) as LooseObject;
@@ -20,8 +20,4 @@ class PreLang {
     }
     return outObj
   }
-}
-
-export {
-  PreLang
 }

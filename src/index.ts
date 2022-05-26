@@ -1,4 +1,10 @@
-export * from "./tool";
+export {
+  PreLang
+} from "./tool";
 
-export * from "./util";
+export {
+  version,
+  Reader,
+  JsonReader
+} from "./util";
 

@@ -10,7 +10,6 @@ module.exports = {
     ],
     extends: [
         "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended"
     ],
     "rules": { } // 新增属性
