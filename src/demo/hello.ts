@@ -1,4 +1,8 @@
 
-export function printHello(val: string) {
+function printHello(val: string) {
   console.log(val)
+}
+
+export {
+  printHello
 }
