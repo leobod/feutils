@@ -112,7 +112,8 @@ class DLinkList{
       this.head.next = node
     }else{
       let pointer = this.head;
-      while(pointer && pointer.next){                  // 只要结点还存在
+      /* 移动节点 */
+      while(pointer && pointer.next){     // 只要结点还存在
         pointer = pointer.next            // 向后一个结点引用
       }
       node.pre = pointer;
