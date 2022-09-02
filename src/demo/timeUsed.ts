@@ -30,25 +30,25 @@ const usedTimeList: Array<UsedModel> = [
   {SName: '002', TStart: '2022-08-04 04:30:00', TEnd: '2022-08-04 04:45:00'},
   {SName: '003', TStart: '2022-08-03 18:00:00', TEnd: '2022-08-04 01:00:00'},
   {SName: '004', TStart: '2022-08-04 19:15:00', TEnd: '2022-08-05 01:00:00'},
-];
+]
 
-const TIME_STEP = 15;
+const TIME_STEP = 15
 
 /**
  * 根据时间间隔生成时间段
  * @param step
  */
 function getTimeOptions(step: number): Array<TimeItemModel> {
-  let hour = 0;
-  let minute = 0;
-  const MAX_HOURS = 24;
-  const MAX_MINUTES = 60;
-  const timeList: Array<TimeItemModel> = [];
+  let hour = 0
+  let minute = 0
+  const MAX_HOURS = 24
+  const MAX_MINUTES = 60
+  const timeList: Array<TimeItemModel> = []
   for (; hour < MAX_HOURS; hour++) {
     minute = 0
     for (; minute < MAX_MINUTES; minute = minute + step) {
-      const time_hour = hour < 9 ? `0${hour}` : hour;
-      const time_minute = minute < 9 ? `0${minute}` : minute;
+      const time_hour = hour < 9 ? `0${hour}` : hour
+      const time_minute = minute < 9 ? `0${minute}` : minute
       timeList.push({
         label: `${time_hour}:${time_minute}`,
         value: `${time_hour}:${time_minute}`,
@@ -72,8 +72,8 @@ function timingUsedTimeList (opts: Array<UsedModel>): Array<TimingUsedModel> {
     /* 转换为时间错，用于计算差值 */
     const start_timestamp = new Date(item.TStart).getTime()
     const end_timestamp = new Date(item.TEnd).getTime()
-    const today_last = new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1;
-    const today_first = new Date(new Date().toLocaleDateString()).getTime();
+    const today_last = new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1
+    const today_first = new Date(new Date().toLocaleDateString()).getTime()
     // console.log((end_timestamp - start_timestamp) / 1000);
     let nType = 0
     /* 是否是今天、明天、昨天... */
@@ -119,15 +119,15 @@ function sortUsedTimeList (opts: Array<TimingUsedModel>): Array<TimingUsedModel>
  * @param usedList
  */
 function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsedModel>): Array<TimeItemModel> {
-  const imut_opts = JSON.parse(JSON.stringify(opts));
+  const imut_opts = JSON.parse(JSON.stringify(opts))
   console.log(imut_opts)
 
   console.log(usedList)
-  const today_start = new Date(new Date().toLocaleDateString()).getTime();
+  const today_start = new Date(new Date().toLocaleDateString()).getTime()
   const unit_step = TIME_STEP * 60 * 1000
   for (const item of usedList) {
     if (item.NType === -1) {
-      const diff_end_minutes = Math.ceil((item.NEnd - today_start));
+      const diff_end_minutes = Math.ceil((item.NEnd - today_start))
       const effect_piece = Math.ceil(diff_end_minutes / unit_step)
       for (let i=0; i< effect_piece  && i < opts.length; ++i) {
         console.log(i)
@@ -137,9 +137,9 @@ function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsed
         }
       }
     } else if (item.NType === 0) {
-      const diff_start_minutes = Math.ceil((item.NStart - today_start));
-      const effect_start = Math.ceil(diff_start_minutes / unit_step);
-      const effect_piece = Math.ceil(item.NDuration / unit_step);
+      const diff_start_minutes = Math.ceil((item.NStart - today_start))
+      const effect_start = Math.ceil(diff_start_minutes / unit_step)
+      const effect_piece = Math.ceil(item.NDuration / unit_step)
       for (let i=effect_start; i< effect_start + effect_piece && i < opts.length; ++i) {
         console.log(i)
         console.log(item.TStart)
@@ -149,8 +149,8 @@ function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsed
         }
       }
     } else if (item.NType === 1) {
-      const diff_start_minutes = Math.ceil((item.NStart - today_start));
-      const effect_start = Math.ceil(diff_start_minutes / unit_step);
+      const diff_start_minutes = Math.ceil((item.NStart - today_start))
+      const effect_start = Math.ceil(diff_start_minutes / unit_step)
       for (let i=effect_start; i < opts.length; ++i) {
         if (!imut_opts[i].modify) {
           imut_opts[i].status = '(已使用)'
@@ -170,7 +170,7 @@ function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsed
 }
 
 // 数据测试当天为 2022-08-05
-console.log(mathUsedOptions(getTimeOptions(TIME_STEP), sortUsedTimeList(timingUsedTimeList(usedTimeList))));
+console.log(mathUsedOptions(getTimeOptions(TIME_STEP), sortUsedTimeList(timingUsedTimeList(usedTimeList))))
 
 
 

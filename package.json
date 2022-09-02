@@ -1,45 +1,51 @@
 {
-  "name": "@leobod/utool",
-  "version": "0.0.2",
+  "name": "@leobod/sot",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build:ts": "tsc",
     "test:dev": "ts-node test/test.ts",
-    "p1": "nodemon -e ts --exec ts-node src/index.ts",
-    "p2": "node dist/index.js"
+    "build:watch": "nodemon -e ts --exec ts-node src/index.ts",
+    "build:webpack": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leobod/small-tool.git"
+    "url": "https://github.com/leobod/sot.git"
   },
   "keywords": [
-    "tool"
+    "util"
   ],
   "author": "leobod (leobod@eside.cn)",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/leobod/small-tool/issues"
+    "url": "https://github.com/leobod/sot/issues"
   },
-  "homepage": "https://github.com/leobod/small-tool#readme",
+  "homepage": "https://github.com/leobod/sot#readme",
   "dependencies": {
     "core-js": "^3.6.5",
     "dayjs": "^1.10.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
     "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "babel-eslint": "~10.1.0",
     "babel-jest": "^26.6.3",
-    "eslint": "^8.3.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^7.1.0",
     "eslint-plugin-import": "^2.20.1",
     "nodemon": "^2.0.15",
+    "ts-loader": "^9.3.1",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   },
   "eslintConfig": {
     "root": true,

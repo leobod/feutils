@@ -1,10 +1,9 @@
 
-
-interface SimpleObject {
+declare type SimpleObject = {
   [key: string]: any
 }
 
-interface SimpleArray {
+declare type SimpleArray = {
   [key: number]: any
 }
 
