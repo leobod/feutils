@@ -26,6 +26,4 @@ const SOT = {
   getLocationParamValue
 }
 
-console.log('RUN')
-
 export default SOT

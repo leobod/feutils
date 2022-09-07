@@ -3,14 +3,12 @@ const path  = require('path')
 
 module.exports = {
   mode: 'development',
-  entry:"./out/index.js",
+  entry:"./tsout/index.js",
   output: {
-    path:path.resolve(__dirname,'dist'),
-    filename:'sot.js',
-  },
-  module:{
-    rules:[
-      // { test: /\.ts$/, use:'ts-loader', exclude:/node-modules/ }
-    ]
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'sot.umd.js',
+    library: 'sot',
+    libraryExport: 'default',
+    libraryTarget: 'umd'
   }
 }

@@ -1,8 +1,9 @@
 {
   "name": "@leobod/sot",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/sot.umd.js",
+  "private": false,
   "files": [
     "/dist"
   ],
