@@ -17,3 +17,7 @@ const formateDate = function (date: DateType, format: string): string {
 export {
   formateDate
 }
+
+export default {
+  formateDate
+}

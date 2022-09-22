@@ -1,7 +1,7 @@
 /**
  * 处理href中的url参数的工具
  */
-import {SimpleObject} from "../@types"
+import {SimpleObject} from "./@types"
 
 /**
  * 根据url处理参数

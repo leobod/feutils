@@ -1,6 +1,6 @@
 {
   "name": "@leobod/sot",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "",
   "main": "dist/sot.umd.js",
   "private": false,
