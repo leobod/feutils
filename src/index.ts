@@ -41,6 +41,10 @@ import {
 } from "./PromiseChain"
 
 import {
+  createRequestor
+} from "./Request"
+
+import {
   validURL,
   validLowerCase,
   validUpperCase,
@@ -77,6 +81,8 @@ export {
 
   runPromiseInSequence,
 
+  createRequestor,
+
   validURL,
   validLowerCase,
   validUpperCase,
@@ -109,6 +115,8 @@ export default {
   getLocationParamValue,
 
   runPromiseInSequence,
+
+  createRequestor,
 
   validURL,
   validLowerCase,
