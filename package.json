@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build:ts": "tsc",
-    "test:dev": "ts-node test/test.ts",
+    "test:dev": "ts-node test/index.test.ts",
     "build:watch": "nodemon -e ts --exec ts-node src/index.ts",
     "build:webpack": "webpack"
   },
