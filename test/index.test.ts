@@ -2,4 +2,9 @@
 
 import { testPromiseChainTest } from './testPromiseChain.test'
 
-testPromiseChainTest()
+import { testChain } from './testChain.test'
+
+// testPromiseChainTest()
+
+
+testChain()
