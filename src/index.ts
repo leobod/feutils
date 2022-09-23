@@ -1,9 +1,27 @@
+
+/**
+ * 链式处理
+ */
+import {
+  pipe,
+  compose
+} from "./Chain"
+
 /**
  * 时间处理工具
  */
 import {
   formateDate
 } from './Date'
+
+import {
+  DeviceType,
+  BrowserType,
+  getDeviceType,
+  isAndroid,
+  isIos,
+  getBrowserType
+} from './Equipment'
 
 /**
  * url参数处理工具
@@ -22,19 +40,35 @@ import {
   runPromiseInSequence
 } from "./PromiseChain"
 
-/**
- * 链式处理
- */
 import {
-  pipe,
-  compose
-} from "./Chain"
+  validURL,
+  validLowerCase,
+  validUpperCase,
+  validAlphabets,
+  validChinese,
+  validEng,
+  validNumber,
+  validPhone,
+  validEmail,
+  validPassword,
+  getPasswordType
+} from './Valid'
 
 /**
  * 公开的方法
  */
 export {
+  pipe,
+  compose,
+
   formateDate,
+
+  DeviceType,
+  BrowserType,
+  getDeviceType,
+  isAndroid,
+  isIos,
+  getBrowserType,
 
   getParams,
   getParamValue,
@@ -43,13 +77,31 @@ export {
 
   runPromiseInSequence,
 
-  pipe,
-  compose,
-
+  validURL,
+  validLowerCase,
+  validUpperCase,
+  validAlphabets,
+  validChinese,
+  validEng,
+  validNumber,
+  validPhone,
+  validEmail,
+  validPassword,
+  getPasswordType
 }
 
 export default {
+  pipe,
+  compose,
+
   formateDate,
+
+  DeviceType,
+  BrowserType,
+  getDeviceType,
+  isAndroid,
+  isIos,
+  getBrowserType,
 
   getParams,
   getParamValue,
@@ -58,6 +110,15 @@ export default {
 
   runPromiseInSequence,
 
-  pipe,
-  compose,
+  validURL,
+  validLowerCase,
+  validUpperCase,
+  validAlphabets,
+  validChinese,
+  validEng,
+  validNumber,
+  validPhone,
+  validEmail,
+  validPassword,
+  getPasswordType
 }
