@@ -5,13 +5,9 @@ module.exports = {
   mode: 'development',
   entry: './src/index.ts',
   output: {
-    filename: 'SmartTool.umd.js',
-    path: path.resolve(__dirname, 'dist/umd'),
-    library:'SmartTool',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    umdNamedDefine:true,
-    globalObject: 'typeof self !== \'undefined\' ? self : this',
+    filename: 'SmartTool.commonjs2.js',
+    path: path.resolve(__dirname, 'dist/commonjs2'),
+    libraryTarget: 'commonjs2'
   },
   devtool: 'source-map',
   resolve: {

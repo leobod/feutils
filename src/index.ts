@@ -58,6 +58,7 @@ import {
   getPasswordType
 } from './Valid'
 
+
 /**
  * 公开的方法
  */
@@ -96,7 +97,7 @@ export {
   getPasswordType
 }
 
-export default {
+const SmartTool = {
   pipe,
   compose,
 
@@ -130,3 +131,4 @@ export default {
   validPassword,
   getPasswordType
 }
+export default SmartTool
