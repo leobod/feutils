@@ -1,6 +1,6 @@
 
 
-import { compose } from '../src/index'
+import { compose } from '../src/out/umd'
 
 export const testChain = function () {
   const toUpperCase = function(x) { return x.toUpperCase() }

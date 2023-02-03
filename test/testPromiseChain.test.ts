@@ -1,6 +1,6 @@
 
 
-import SOT, { runPromiseInSequence } from '../src/index'
+import SOT, { runPromiseInSequence } from '../src/out/umd'
 
 const fn1 = (val) => {
   console.log(val)
