@@ -11,7 +11,12 @@
     "build:ts": "tsc",
     "test:dev": "ts-node test/index.test.ts",
     "build:watch": "nodemon -e ts --exec ts-node src/index.ts",
-    "build:webpack": "webpack"
+    "build:webpack": "webpack",
+    "pkg:pre-win64": "pkg -t node10-win-x64 ./tsout/pkg/index.js -o tools/win64/Tool.win64.exe",
+    "pkg:pre-mac64": "pkg -t node10-macos-x64 ./tsout/pkg/index.js -o tools/mac64/Tool.mac64.run",
+    "pkg:win64": "npm run build:ts && npm run pkg:pre-win64",
+    "pkg:mac64": "npm run build:ts && npm run pkg:pre-mac64",
+    "pkg:all": "npm run build:ts && npm run pkg:pre-win64 && npm run pkg:pre-mac64"
   },
   "repository": {
     "type": "git",
@@ -43,6 +48,7 @@
     "eslint": "^7.1.0",
     "eslint-plugin-import": "^2.20.1",
     "nodemon": "^2.0.15",
+    "pkg": "^5.8.0",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.8.2",
