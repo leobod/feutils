@@ -11,39 +11,16 @@ program
   .version('0.0.1')
 
 program
-  .command('test')
-    .description('the description for this command \n this is about how to use commander \n just a sample')
-    .summary('the simple des for this command')
-    .argument('<script>')
-    .option('-r, --required <number>', 'required parameter', '80')
-    .option('-op, --optional [number]', 'optional parameter')
-    .option('-ops, --optionals [number...]', 'optional parameters')
-    .action(function(script, options, command) {
-      console.log('arguments script: ', script)
-      console.log('options : ', options)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      // console.error('Run script %s on port %s', this.args[0], this.opts().port)
-    })
+  .command('get')
+  .command('dt')
+  .description('获取文件中的所有$t元素')
+  .summary('获取文件中的所有$t元素')
+  .argument('<file_path>')
+  .action(function(file_path) {
+    console.log('当前输入的路径为: ', file_path)
+    if (file_path && file_path !== '') {
+      getAllDirsAndFiles(file_path)
+    }
+  })
 
 program.parse()
-
-
-// const main = () => {
-//   const args = process.argv.slice(2)
-//   console.log(args)
-//   // const rootPath = 'D:\\project\\Visitor2.0\\main\\Vistor2.0Web\\src'
-//   let rootPath = ''
-//   let idxOfPath = -1
-//   args.forEach((item, idx) => {
-//     if (item === '--path') {
-//       idxOfPath = idx + 1
-//     }
-//   })
-//   if (idxOfPath !== -1) {
-//     rootPath = args[idxOfPath]
-//     getAllDirsAndFiles(rootPath)
-//   }
-// }
-//
-// main()
