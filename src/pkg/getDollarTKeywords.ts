@@ -1,42 +1,42 @@
-import fs from "fs"
-import path from "path"
+import fs from 'fs'
+import path from 'path'
 
 /**
  * $t获取keyword处理过程队列定义
  */
 interface DollarTProcessQueue {
-  dir: string[],
-  file: string[],
+  dir: string[]
+  file: string[]
   dtKey: string[]
 }
 
 const queue: DollarTProcessQueue = {
   dir: [],
   file: [],
-  dtKey: [],
+  dtKey: []
 }
 
 const getAllDirsAndFiles = (rootPath) => {
   if (fs.existsSync(rootPath)) {
-    getSubDirsAndFiles(rootPath)
-      .then(async () => {
-        /* 先目录后文件 */
-        while (queue.dir.length > 0) {
-          await getSubDirsAndFiles(queue.dir.shift() as string)
-        }
-        for (const filePath of queue.file) {
-          await getDtKeys(filePath)
-        }
-        console.log(queue.dtKey)
-      })
+    getSubDirsAndFiles(rootPath).then(async () => {
+      /* 先目录后文件 */
+      while (queue.dir.length > 0) {
+        await getSubDirsAndFiles(queue.dir.shift() as string)
+      }
+      for (const filePath of queue.file) {
+        await getDtKeys(filePath)
+      }
+      console.log(queue.dtKey)
+    })
   } else {
     console.warn('指定目录不存在')
   }
 }
 
-const getSubDirsAndFiles = (currentPath: string):Promise<null> => {
+const getSubDirsAndFiles = (currentPath: string): Promise<null> => {
   return new Promise((resolve) => {
-    fs.promises.readdir(currentPath, { withFileTypes: true })
+    fs.promises
+      .readdir(currentPath, { withFileTypes: true })
       .then((files) => {
         for (const file of files) {
           if (['api', 'assets', 'icons', 'lang', 'router', 'styles'].indexOf(file.name) !== -1) {
@@ -58,19 +58,18 @@ const getSubDirsAndFiles = (currentPath: string):Promise<null> => {
   })
 }
 
-
-
-const getDtKeys = (dtPath: string):Promise<null> => {
+const getDtKeys = (dtPath: string): Promise<null> => {
   return new Promise((resolve) => {
     // const dtPath = '/views/Notify/WeChatTemplate.vue'
-    fs.promises.readFile(dtPath, 'utf8')
+    fs.promises
+      .readFile(dtPath, 'utf8')
       .then((content) => {
         // console.log(content)
         // const reg = new RegExp('\\$t\\(.+\\)', 'g')
-        const reg = new RegExp('\\$t\\(\'.+?\'\\)', 'g')
+        const reg = new RegExp("\\$t\\('.+?'\\)", 'g')
         const keyListWithDT = content.match(reg) || []
-        const keyList = keyListWithDT.map(item => {
-          const reg2 = new RegExp('\\$t\\(\'(.+)\'\\)', 'g')
+        const keyList = keyListWithDT.map((item) => {
+          const reg2 = new RegExp("\\$t\\('(.+)'\\)", 'g')
           const val = item.replace(reg2, '$1')
           return val
         })
@@ -106,8 +105,4 @@ const main = () => {
   }
 }
 
-export {
-  getAllDirsAndFiles
-}
-
-
+export { getAllDirsAndFiles }

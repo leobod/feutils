@@ -5,7 +5,7 @@
  * @param fns
  */
 const pipe = function (src, ...fns) {
-  return fns.reduce(function(fn1, fn2){
+  return fns.reduce(function (fn1, fn2) {
     return fn2(fn1)
   }, src)
 }
@@ -20,7 +20,7 @@ const compose = function (...args) {
   const length = args.length
   let count = length - 1
   let result
-  return function f1 (...arg1) {
+  return function f1(...arg1) {
     /* apply(this:Object, args: Array) */
     result = args[count].apply(null, arg1)
     if (count <= 0) {
@@ -33,8 +33,4 @@ const compose = function (...args) {
   }
 }
 
-
-export {
-  pipe,
-  compose
-}
+export { pipe, compose }

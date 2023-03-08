@@ -1,4 +1,4 @@
-import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 /**
  * TODO 需要进一步处理
@@ -7,13 +7,13 @@ import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
  */
 const createRequestor = function (baseURL) {
   const service = axios.create({
-      baseURL: baseURL, // url = base url + request url
-      withCredentials: false, // send cookies when cross-domain requests
-      timeout: 5000 // request timeout
-    })
+    baseURL: baseURL, // url = base url + request url
+    withCredentials: false, // send cookies when cross-domain requests
+    timeout: 5000 // request timeout
+  })
 
   service.interceptors.request.use(
-    (config:AxiosRequestConfig) => {
+    (config: AxiosRequestConfig) => {
       // 请求参数拦截,预处理
       console.log(config)
       return config
@@ -37,8 +37,4 @@ const createRequestor = function (baseURL) {
   return service
 }
 
-
-export {
-  createRequestor
-}
-
+export { createRequestor }

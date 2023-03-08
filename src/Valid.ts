@@ -1,34 +1,37 @@
-
-
-// 正则表达式
-// ^\\d+$　　//非负整数（正整数 + 0）
-// ^[0-9]*[1-9][0-9]*$　　//正整数
-// ^((-\\d+)|(0+))$　　//非正整数（负整数 + 0）
-// ^-[0-9]*[1-9][0-9]*$　　//负整数
-// ^-?\\d+$　　　　//整数
-// ^\\d+(　　//非负浮点数（正浮点数 + 0）
-// ^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$ //正浮点数
-// ^((-\\d+(　　//非正浮点数（负浮点数 + 0）
-// ^(-(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*)))$ //负浮点数
-// ^(-?\\d+)(　　//浮点数
-// ^[A-Za-z]+$　　//由26个英文字母组成的字符串
-// ^[A-Z]+$　　//由26个英文字母的大写组成的字符串
-// ^[a-z]+$　　//由26个英文字母的小写组成的字符串
-// ^[A-Za-z0-9]+$　　//由数字和26个英文字母组成的字符串
-// ^\\w+$　　//由数字、26个英文字母或者下划线组成的字符串
-// ^[\\w-]+(　　　　//email地址
-// ^[a-zA-z]+://(　　//url
-// ^[A-Za-z0-9_]*$
-// 匹配完整域名的正则表达式：
-// [a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?
+/* eslint-disable */
+/**
+ * 正则表达式
+ * ^\\d+$　　//非负整数（正整数 + 0）
+ * ^[0-9]*[1-9][0-9]*$　　//正整数
+ * ^((-\\d+)|(0+))$　　//非正整数（负整数 + 0）
+ * ^-[0-9]*[1-9][0-9]*$　　//负整数
+ * ^-?\\d+$　　　　//整数
+ * ^\\d+(　　//非负浮点数（正浮点数 + 0）
+ * ^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$ //正浮点数
+ * ^((-\\d+(　　//非正浮点数（负浮点数 + 0）
+ * ^(-(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*)))$ //负浮点数
+ * ^(-?\\d+)(　　//浮点数
+ * ^[A-Za-z]+$　　//由26个英文字母组成的字符串
+ * ^[A-Z]+$　　//由26个英文字母的大写组成的字符串
+ * ^[a-z]+$　　//由26个英文字母的小写组成的字符串
+ * ^[A-Za-z0-9]+$　　//由数字和26个英文字母组成的字符串
+ * ^\\w+$　　//由数字、26个英文字母或者下划线组成的字符串
+ * ^[\\w-]+(　　　　//email地址
+ * ^[a-zA-z]+://(　　//url
+ * ^[A-Za-z0-9_]*$
+ * 匹配完整域名的正则表达式：
+ * [a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?
+ */
+/* eslint-enable */
 
 /**
  * 是否是URL
  * @param {string} url
  * @returns {Boolean}
  */
-const validURL = function(url):boolean {
-  const reg = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/
+const validURL = function (url): boolean {
+  const reg =
+    /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/
   return reg.test(url)
 }
 
@@ -37,7 +40,7 @@ const validURL = function(url):boolean {
  * @param {string} str
  * @returns {Boolean}
  */
-const validLowerCase = function(str):boolean {
+const validLowerCase = function (str): boolean {
   const reg = /^[a-z]+$/
   return reg.test(str)
 }
@@ -47,7 +50,7 @@ const validLowerCase = function(str):boolean {
  * @param {string} str
  * @returns {Boolean}
  */
-const validUpperCase = function(str):boolean {
+const validUpperCase = function (str): boolean {
   const reg = /^[A-Z]+$/
   return reg.test(str)
 }
@@ -57,7 +60,7 @@ const validUpperCase = function(str):boolean {
  * @param {string} str
  * @returns {Boolean}
  */
-const validAlphabets = function(str):boolean {
+const validAlphabets = function (str): boolean {
   const reg = /^[A-Za-z]+$/
   return reg.test(str)
 }
@@ -67,8 +70,8 @@ const validAlphabets = function(str):boolean {
  * @param {string} str
  * @return {boolean}
  */
-const validChinese = function(str):boolean {
-  const pattern = new RegExp("[\u4E00-\u9FA5]+")
+const validChinese = function (str): boolean {
+  const pattern = new RegExp('[\u4E00-\u9FA5]+')
   return pattern.test(str)
 }
 
@@ -77,8 +80,8 @@ const validChinese = function(str):boolean {
  * @param {string} str
  * @return {boolean}
  */
-const validEng = function (str):boolean {
-  const pattern = new RegExp("[A-Za-z]+")
+const validEng = function (str): boolean {
+  const pattern = new RegExp('[A-Za-z]+')
   return pattern.test(str)
 }
 
@@ -87,8 +90,8 @@ const validEng = function (str):boolean {
  * @param {string} str
  * @return {boolean}
  */
-const validNumber = function(str):boolean {
-  const pattern = new RegExp("[0-9]+")
+const validNumber = function (str): boolean {
+  const pattern = new RegExp('[0-9]+')
   return pattern.test(str)
 }
 
@@ -97,7 +100,7 @@ const validNumber = function(str):boolean {
  * @param {string} str
  * @return {boolean}
  */
-const validPhone = function (str):boolean {
+const validPhone = function (str): boolean {
   const pattern = /^[1][3-9][\d]{9}/
   return pattern.test(str)
 }
@@ -107,8 +110,8 @@ const validPhone = function (str):boolean {
  * @param {string} str
  * @return {boolean}
  */
-const validEmail = function(str) :boolean {
-  const pattern = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$")
+const validEmail = function (str): boolean {
+  const pattern = new RegExp('^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$')
   return pattern.test(str)
 }
 
@@ -116,7 +119,7 @@ const validEmail = function(str) :boolean {
  * 密码验证
  * @param str
  */
-const validPassword = function(str, type='strong'):boolean {
+const validPassword = function (str, type = 'strong'): boolean {
   switch (type) {
     case 'strong':
       return _validStrongPassword(str)
@@ -133,7 +136,7 @@ const validPassword = function(str, type='strong'):boolean {
  * 纯数字密码
  * @param str
  */
-const _validNumberPassword = function(str):boolean {
+const _validNumberPassword = function (str): boolean {
   const pattern = /^[0-9]{6}$/
   return pattern.test(str)
 }
@@ -142,17 +145,16 @@ const _validNumberPassword = function(str):boolean {
  * 以字母开头、可带数字、“_”、“.”的字串(适用于登录名)
  * @param str
  */
-const _validAccountPassword = function(str):boolean {
+const _validAccountPassword = function (str): boolean {
   const pattern = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){2,18}$/
   return pattern.test(str)
 }
-
 
 /**
  * 校验密码：只能输入6-20个字母、数字、下划线
  * @param str
  */
-const _validNormalPassword = function(str):boolean {
+const _validNormalPassword = function (str): boolean {
   const pattern = /^(\w){6,20}$/
   return pattern.test(str)
 }
@@ -161,11 +163,10 @@ const _validNormalPassword = function(str):boolean {
  * 6~18位字母、数字、符号的组合密码
  * @param str
  */
-const _validStrongPassword = function(str):boolean {
+const _validStrongPassword = function (str): boolean {
   const pattern = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*()<>,.?-_+=`~])[0-9a-zA-Z!@#$%^&*()<>,.?-_+=`~]{6,18}$/
   return pattern.test(str)
 }
-
 
 enum PasswordType {
   WEAK = 0,
@@ -177,18 +178,15 @@ enum PasswordType {
  * 密码强度
  * @param str
  */
-const getPasswordType = function (str):PasswordType {
-  if(/^\d+$/.test(str) || /^[a-z]+$/.test(str) || /^[A-Z]+$/.test(str)){
+const getPasswordType = function (str): PasswordType {
+  if (/^\d+$/.test(str) || /^[a-z]+$/.test(str) || /^[A-Z]+$/.test(str)) {
     return PasswordType.WEAK
-  } else if(/\d+/.test(str) && /[a-z]+/.test(str) && /[A-Z]+/.test(str)) {
+  } else if (/\d+/.test(str) && /[a-z]+/.test(str) && /[A-Z]+/.test(str)) {
     return PasswordType.STRONG
   } else {
     return PasswordType.NORMAL
   }
 }
-
-
-
 
 export {
   validURL,
@@ -203,4 +201,3 @@ export {
   validPassword,
   getPasswordType
 }
-

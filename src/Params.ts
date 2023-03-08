@@ -1,13 +1,13 @@
 /**
  * 处理href中的url参数的工具
  */
-import {SimpleObject} from "./@types"
+import { SimpleObject } from './@types'
 
 /**
  * 根据url处理参数
  * @param url
  */
-const getParams = function (url:string):SimpleObject {
+const getParams = function (url: string): SimpleObject {
   return _getLocationParams(_parseUrl(url))
 }
 
@@ -16,7 +16,7 @@ const getParams = function (url:string):SimpleObject {
  * @param url
  * @param param
  */
-const getParamValue = function (url:string, param:string):string {
+const getParamValue = function (url: string, param: string): string {
   const paramsObj = getParams(url)
   if (paramsObj[param]) {
     return paramsObj[param]
@@ -28,7 +28,7 @@ const getParamValue = function (url:string, param:string):string {
  * 解析url为url对象
  * @param url
  */
-const _parseUrl = function (url:string):SimpleObject {
+const _parseUrl = function (url: string): SimpleObject {
   return new URL(url)
 }
 
@@ -52,7 +52,7 @@ const _getLocationParams = function (location: SimpleObject): SimpleObject {
  * @param key
  * @returns {SimpleObject}
  */
-const getLocationParams = function(): SimpleObject {
+const getLocationParams = function (): SimpleObject {
   return getParams(window.location.href)
 }
 
@@ -65,9 +65,4 @@ const getLocationParamValue = function (param: string): string {
   return getParamValue(window.location.href, param)
 }
 
-export {
-  getParams,
-  getParamValue,
-  getLocationParams,
-  getLocationParamValue
-}
+export { getParams, getParamValue, getLocationParams, getLocationParamValue }

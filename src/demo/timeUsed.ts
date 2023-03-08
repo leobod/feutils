@@ -1,35 +1,32 @@
-
-
 interface TimeItemModel {
-  label: string,
-  value: string,
-  status: string,
-  create: boolean,
+  label: string
+  value: string
+  status: string
+  create: boolean
   modify: boolean
 }
 
 interface UsedModel {
-  SName: string,
-  TStart: string,
+  SName: string
+  TStart: string
   TEnd: string
 }
 
 interface TimingUsedModel {
-  SName: string,
-  TStart: string,
-  TEnd: string,
-  NStart: number,
-  NEnd: number,
-  NDuration: number,
-  NType: number, // 今天(0)  昨天(-1)  明天(1)  贯穿一整天(2)
+  SName: string
+  TStart: string
+  TEnd: string
+  NStart: number
+  NEnd: number
+  NDuration: number
+  NType: number // 今天(0)  昨天(-1)  明天(1)  贯穿一整天(2)
 }
 
-
 const usedTimeList: Array<UsedModel> = [
-  {SName: '001', TStart: '2022-08-04 01:00:00', TEnd: '2022-08-04 02:15:00'},
-  {SName: '002', TStart: '2022-08-04 04:30:00', TEnd: '2022-08-04 04:45:00'},
-  {SName: '003', TStart: '2022-08-03 18:00:00', TEnd: '2022-08-04 01:00:00'},
-  {SName: '004', TStart: '2022-08-04 19:15:00', TEnd: '2022-08-05 01:00:00'},
+  { SName: '001', TStart: '2022-08-04 01:00:00', TEnd: '2022-08-04 02:15:00' },
+  { SName: '002', TStart: '2022-08-04 04:30:00', TEnd: '2022-08-04 04:45:00' },
+  { SName: '003', TStart: '2022-08-03 18:00:00', TEnd: '2022-08-04 01:00:00' },
+  { SName: '004', TStart: '2022-08-04 19:15:00', TEnd: '2022-08-05 01:00:00' }
 ]
 
 const TIME_STEP = 15
@@ -66,8 +63,8 @@ function getTimeOptions(step: number): Array<TimeItemModel> {
  * 已使用的时间段，timestamp化
  * @param opts
  */
-function timingUsedTimeList (opts: Array<UsedModel>): Array<TimingUsedModel> {
-  const result : Array<TimingUsedModel> = []
+function timingUsedTimeList(opts: Array<UsedModel>): Array<TimingUsedModel> {
+  const result: Array<TimingUsedModel> = []
   for (const item of opts) {
     /* 转换为时间错，用于计算差值 */
     const start_timestamp = new Date(item.TStart).getTime()
@@ -105,20 +102,19 @@ function timingUsedTimeList (opts: Array<UsedModel>): Array<TimingUsedModel> {
  * 升序排序,timestamp的已使用的时间段
  * @param opts
  */
-function sortUsedTimeList (opts: Array<TimingUsedModel>): Array<TimingUsedModel> {
+function sortUsedTimeList(opts: Array<TimingUsedModel>): Array<TimingUsedModel> {
   return opts.sort((prev, next) => {
     return prev.NStart - next.NStart
   })
 }
 // console.log(sortUsedTimeList(timingUsedTimeList(usedTimeList)));
 
-
 /**
  * 给定时间段，与已使用的时间，填充出时间段占用有否的情况
  * @param opts
  * @param usedList
  */
-function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsedModel>): Array<TimeItemModel> {
+function mathUsedOptions(opts: Array<TimeItemModel>, usedList: Array<TimingUsedModel>): Array<TimeItemModel> {
   const imut_opts = JSON.parse(JSON.stringify(opts))
   console.log(imut_opts)
 
@@ -127,9 +123,9 @@ function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsed
   const unit_step = TIME_STEP * 60 * 1000
   for (const item of usedList) {
     if (item.NType === -1) {
-      const diff_end_minutes = Math.ceil((item.NEnd - today_start))
+      const diff_end_minutes = Math.ceil(item.NEnd - today_start)
       const effect_piece = Math.ceil(diff_end_minutes / unit_step)
-      for (let i=0; i< effect_piece  && i < opts.length; ++i) {
+      for (let i = 0; i < effect_piece && i < opts.length; ++i) {
         console.log(i)
         if (!imut_opts[i].modify) {
           imut_opts[i].status = '(已使用)'
@@ -137,10 +133,10 @@ function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsed
         }
       }
     } else if (item.NType === 0) {
-      const diff_start_minutes = Math.ceil((item.NStart - today_start))
+      const diff_start_minutes = Math.ceil(item.NStart - today_start)
       const effect_start = Math.ceil(diff_start_minutes / unit_step)
       const effect_piece = Math.ceil(item.NDuration / unit_step)
-      for (let i=effect_start; i< effect_start + effect_piece && i < opts.length; ++i) {
+      for (let i = effect_start; i < effect_start + effect_piece && i < opts.length; ++i) {
         console.log(i)
         console.log(item.TStart)
         if (!imut_opts[i].modify) {
@@ -149,16 +145,16 @@ function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsed
         }
       }
     } else if (item.NType === 1) {
-      const diff_start_minutes = Math.ceil((item.NStart - today_start))
+      const diff_start_minutes = Math.ceil(item.NStart - today_start)
       const effect_start = Math.ceil(diff_start_minutes / unit_step)
-      for (let i=effect_start; i < opts.length; ++i) {
+      for (let i = effect_start; i < opts.length; ++i) {
         if (!imut_opts[i].modify) {
           imut_opts[i].status = '(已使用)'
           imut_opts[i].modify = true
         }
       }
     } else if (item.NType === 2) {
-      for (let i=0; i < opts.length; ++i) {
+      for (let i = 0; i < opts.length; ++i) {
         if (!imut_opts[i].modify) {
           imut_opts[i].status = '(已使用)'
           imut_opts[i].modify = true
@@ -171,6 +167,3 @@ function mathUsedOptions (opts: Array<TimeItemModel>, usedList: Array<TimingUsed
 
 // 数据测试当天为 2022-08-05
 console.log(mathUsedOptions(getTimeOptions(TIME_STEP), sortUsedTimeList(timingUsedTimeList(usedTimeList))))
-
-
-

@@ -1,5 +1,3 @@
-
-
 enum DeviceType {
   BROWSER = 0,
   ANDROID = 1,
@@ -16,7 +14,7 @@ enum BrowserType {
 /**
  * 识别设备类型
  */
-const getDeviceType = function():DeviceType {
+const getDeviceType = function (): DeviceType {
   if (isAndroid()) {
     return DeviceType.ANDROID
   } else if (isIos()) {
@@ -30,14 +28,14 @@ const getDeviceType = function():DeviceType {
  * 检查是否是Android设备
  * @returns {boolean}
  */
-const isAndroid = function():boolean {
+const isAndroid = function (): boolean {
   return navigator.userAgent.indexOf('Android') > -1
 }
 /**
  * 检查是否是IOS设备(可能需要完善)
  * @returns {boolean}
  */
-const isIos = function():boolean {
+const isIos = function (): boolean {
   return !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) // ios终端
 }
 
@@ -45,12 +43,12 @@ const isIos = function():boolean {
  * 游览器环境识别
  * @returns {boolean}
  */
-const getBrowserType = function():BrowserType {
+const getBrowserType = function (): BrowserType {
   const ua = navigator.userAgent.toLowerCase()
   if (ua.indexOf('dingtalk') !== -1) {
     // 钉钉
     return BrowserType.DINGTALK
-  } else if ((ua.indexOf('micromessenger') !== -1) && (ua.indexOf('wxwork') !== -1)) {
+  } else if (ua.indexOf('micromessenger') !== -1 && ua.indexOf('wxwork') !== -1) {
     // 企业微信
     // (ua.match(/micromessenger/i) === 'micromessenger') && (ua.match(/wxwork/i) === 'wxwork')
     return BrowserType.WORK_WECHAT
@@ -62,12 +60,4 @@ const getBrowserType = function():BrowserType {
   }
 }
 
-export {
-  DeviceType,
-  BrowserType,
-
-  getDeviceType,
-  isAndroid,
-  isIos,
-  getBrowserType
-}
+export { DeviceType, BrowserType, getDeviceType, isAndroid, isIos, getBrowserType }

@@ -1,14 +1,10 @@
-import {getAllDirsAndFiles} from "./getDollarTKeywords"
+import { getAllDirsAndFiles } from './getDollarTKeywords'
 
-
-import { Command } from "commander"
+import { Command } from 'commander'
 
 const program = new Command()
 
-program
-  .name('sot')
-  .description('this is a tool for work')
-  .version('0.0.1')
+program.name('sot').description('this is a tool for work').version('0.0.1')
 
 program
   .command('test')
@@ -18,7 +14,7 @@ program
   .option('-r, --required <number>', 'required parameter', '80')
   .option('-op, --optional [number]', 'optional parameter')
   .option('-ops, --optionals [number...]', 'optional parameters')
-  .action(function(script, options, command) {
+  .action(function (script, options, command) {
     console.log('arguments script: ', script)
     console.log('options : ', options)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -27,7 +23,6 @@ program
   })
 
 program.parse()
-
 
 // const main = () => {
 //   const args = process.argv.slice(2)

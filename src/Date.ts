@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 dayjs.locale('zh-cn')
 
-type DateType = string | Date;
+type DateType = string | Date
 
 /**
  *
@@ -13,7 +13,4 @@ const formateDate = function (date: DateType, format: string): string {
   return dayjs(date).format(format)
 }
 
-
-export {
-  formateDate
-}
+export { formateDate }
