@@ -1,5 +1,5 @@
 import {describe, expect, test} from '@jest/globals'
-import { formateDate } from '../src/Date'
+import { formateDate } from '../src/index'
 
 describe('Date', () => {
   test('formateDate', () => {

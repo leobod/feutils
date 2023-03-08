@@ -15,7 +15,10 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js']
+    // alias:{
+    //   '@':path.resolve(__dirname,'src/')
+    // }
   },
   module: {
     // 指定要加载的规则

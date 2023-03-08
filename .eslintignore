@@ -2,5 +2,4 @@ build/*.js
 src/assets
 public
 dist
-
-.env.development
+test/
