@@ -8,7 +8,12 @@ import { pipe, compose } from './Chain'
  */
 import { formateDate } from './Date'
 
+/**
+ * 设备相关工具方法
+ */
 import { DeviceType, BrowserType, getDeviceType, isAndroid, isIos, getBrowserType } from './Equipment'
+
+import { EventBus } from './EventBus'
 
 /**
  * url参数处理工具
@@ -49,6 +54,7 @@ export {
   isAndroid,
   isIos,
   getBrowserType,
+  EventBus,
   getParams,
   getParamValue,
   getLocationParams,
@@ -80,6 +86,8 @@ const SmartTool = {
   isAndroid,
   isIos,
   getBrowserType,
+
+  EventBus,
 
   getParams,
   getParamValue,
