@@ -12,7 +12,5 @@ module.exports = {
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    rules: {
-        semi: ['error', 'never']
-    }
+    rules: {}
 }
