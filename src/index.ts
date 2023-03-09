@@ -1,3 +1,5 @@
+
+
 /**
  * 链式处理
  */
@@ -74,40 +76,3 @@ export {
   getPasswordType
 }
 
-const SmartTool = {
-  pipe,
-  compose,
-
-  formateDate,
-
-  DeviceType,
-  BrowserType,
-  getDeviceType,
-  isAndroid,
-  isIos,
-  getBrowserType,
-
-  EventBus,
-
-  getParams,
-  getParamValue,
-  getLocationParams,
-  getLocationParamValue,
-
-  runPromiseInSequence,
-
-  createRequestor,
-
-  validURL,
-  validLowerCase,
-  validUpperCase,
-  validAlphabets,
-  validChinese,
-  validEng,
-  validNumber,
-  validPhone,
-  validEmail,
-  validPassword,
-  getPasswordType
-}
-export default SmartTool
