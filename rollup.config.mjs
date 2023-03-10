@@ -22,26 +22,6 @@ export default [
       }
     ]
   },
-  {
-    input: './src/index.ts',
-    plugins: [
-      resolve(['.js', '.ts']),
-      typescript(),
-      json(),
-      commonjs2({
-        // non-CommonJS modules will be ignored, but you can also
-        // specifically include/exclude files
-        include: 'node_modules/**',  // Default: undefined
-      })
-    ],
-    output: [
-      {
-        dir: 'dist',
-        format: 'es',
-        entryFileNames: '[name].esm.js'
-      }
-    ]
-  },
   /* 单独生成声明文件 */
   {
     input: './src/index.ts',
