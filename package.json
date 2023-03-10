@@ -5,9 +5,9 @@
   "main": "./dist/umd/SmartTool.umd.js",
   "exports": {
     ".": {
-      "import": "./dist/cjs/index.js",
-      "require": "./dist/commonjs2/SmartTool.commonjs2.js",
-      "default": "./dist/umd/SmartTool.umd.js"
+      "import": "./dist/index.cjs.js",
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.cjs.js"
     }
   },
   "bin": {},
