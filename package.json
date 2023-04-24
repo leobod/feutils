@@ -2,7 +2,7 @@
   "name": "@esidecn/feutils",
   "version": "0.0.1",
   "description": "",
-  "main": "./dist/umd/SmartTool.umd.js",
+  "main": "./dist/index.cjs.js",
   "exports": {
     ".": {
       "import": "./dist/index.cjs.js",
@@ -21,33 +21,26 @@
     "build:ts": "tsc --project tsconfig.json",
     "build:webpack": "webpack --config webpack.config.js",
     "build": "rollup -c rollup.config.mjs",
-    "rm:pkg": "rimraf dist/win64 && rimraf dist/mac64",
-    "pkg:pre-win64": "pkg -t node10-win-x64 ./dist/commonjs/pkg/index.js -o dist/win64/sot.win64.exe",
-    "pkg:pre-mac64": "pkg -t node10-macos-x64 ./dist/commonjs/pkg/index.js -o dist/mac64/sot.mac64.run",
-    "pkg:win64": "npm run build:ts && npm run pkg:pre-win64",
-    "pkg:mac64": "npm run build:ts && npm run pkg:pre-mac64",
     "test:dev": "jest",
     "build:watch": "nodemon -e ts --exec ts-node src/out/umd.ts"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leobod/sot.git"
+    "url": "https://github.com/leobod/feutils.git"
   },
   "keywords": [
     "util"
   ],
   "author": "leobod (leobod@eside.cn)",
-  "license": "BSD-3-Clause",
+  "license": "mit",
   "bugs": {
-    "url": "https://github.com/leobod/sot/issues"
+    "url": "https://github.com/leobod/feutils/issues"
   },
-  "homepage": "https://github.com/leobod/sot#readme",
+  "homepage": "https://github.com/leobod/feutils#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "commander": "^10.0.0",
     "core-js": "^3.6.5",
-    "dayjs": "^1.10.7",
-    "iconv": "^3.0.1"
+    "dayjs": "^1.10.7"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
