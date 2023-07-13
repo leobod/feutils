@@ -25,7 +25,7 @@ import { getParams, getParamValue, getLocationParams, getLocationParamValue } fr
  */
 import { runPromiseInSequence } from './PromiseChain'
 
-import { createRequestor } from './Request'
+import { createRequestor, createRequestPrefix } from './Request'
 
 import {
   validURL,
@@ -92,6 +92,7 @@ export {
   getLocationParamValue,
   runPromiseInSequence,
   createRequestor,
+  createRequestPrefix,
   validURL,
   validLowerCase,
   validUpperCase,

@@ -37,4 +37,11 @@ const createRequestor = function (baseURL) {
   return service
 }
 
-export { createRequestor }
+const createRequestPrefix = ($req, prefix) => {
+  return {
+    get: (controller) => (data) => $req({ url: `/${prefix}/${controller}`, params: data }),
+    post: (controller) => (data) => $req({ url: `/${prefix}/${controller}`, method: 'post', data })
+  }
+}
+
+export { createRequestor, createRequestPrefix }
