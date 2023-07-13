@@ -6,7 +6,7 @@ import { pipe, compose } from './Chain'
 /**
  * 时间处理工具
  */
-import { formateDate } from './Date'
+import { formatDate } from './Date'
 
 /**
  * 设备相关工具方法
@@ -41,10 +41,10 @@ import {
   getPasswordType
 } from './Valid'
 
-const feutils = {
+const $u = {
   pipe,
   compose,
-  formateDate,
+  formatDate,
   DeviceType,
   BrowserType,
   getDeviceType,
@@ -70,7 +70,7 @@ const feutils = {
   validPassword
 }
 
-export default feutils
+export default $u
 
 /**
  * 公开的方法
@@ -78,7 +78,7 @@ export default feutils
 export {
   pipe,
   compose,
-  formateDate,
+  formatDate,
   DeviceType,
   BrowserType,
   getDeviceType,

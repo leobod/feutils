@@ -18,7 +18,7 @@ const config = {
     path: path.resolve(__dirname, 'dist/lib'),
     filename: 'index.js',
     library: {
-      name: 'feutils',
+      name: '$u',
       type: 'umd',
       export: 'default'
     },

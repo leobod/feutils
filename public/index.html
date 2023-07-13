@@ -7,7 +7,12 @@
 <body>
 
   <script type="text/javascript" src="../dist/lib/index.js">
-  console.log(feutils.formateDate)
+  </script>
+
+  <script>
+  window.onload = function () {
+    console.log(window.$u.formatDate(new Date(), 'YYYY/MM/DD'))
+  }
   </script>
 
 </body>
