@@ -1,5 +1,3 @@
-
-
 /**
  * 链式处理
  */
@@ -43,6 +41,37 @@ import {
   getPasswordType
 } from './Valid'
 
+const feutils = {
+  pipe,
+  compose,
+  formateDate,
+  DeviceType,
+  BrowserType,
+  getDeviceType,
+  isAndroid,
+  isIos,
+  getBrowserType,
+  EventBus,
+  getParams,
+  getParamValue,
+  getLocationParams,
+  getLocationParamValue,
+  runPromiseInSequence,
+  createRequestor,
+  validURL,
+  validLowerCase,
+  validUpperCase,
+  validAlphabets,
+  validChinese,
+  validEng,
+  validNumber,
+  validPhone,
+  validEmail,
+  validPassword
+}
+
+export default feutils
+
 /**
  * 公开的方法
  */
@@ -75,4 +104,3 @@ export {
   validPassword,
   getPasswordType
 }
-

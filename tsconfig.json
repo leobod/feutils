@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "sourceMap": false,
-    "declaration": false,
-    "outDir": "./dist/lib",
+    "declaration": true, // 指定生成类型声明文件
+    "declarationDir": "./dist/types", // 指定类型声明文件的文件夹
+    "outDir": "./dist/esm",
   },
   /* 定义被继承的配置文件 */
   "extends": "./tsconfig.base.json"
